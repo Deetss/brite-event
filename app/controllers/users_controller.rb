@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             flash[:success] = "Welcome to Brite Event!"
-            redirect_to show_user_path
+            redirect_to @user
         else
             flash.now[:danger] = "Sign up failed!"
             render :new
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     end
     
     def show
+        @user = User.find(params[:id])
     end
     
     private
