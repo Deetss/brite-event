@@ -1,0 +1,25 @@
+@import "materialize/components/color";
+$primary-color: #247BA0 !default;
+$secondary-color: #F25F5C !default;
+@import 'materialize';
+
+/* Nav */
+
+nav .nav-wrapper {
+    padding-left: 15px;
+}
+
+
+/* Flash */
+
+.success {
+    background-color: #70C1B3;
+}
+
+.danger {
+   background-color: #ff6e40; 
+}
+
+.warning {
+    background-color: #FFE066;
+}

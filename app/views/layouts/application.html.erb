@@ -5,14 +5,22 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>$(".button-collapse").sideNav();</script>
   </head>
 
   <body>
-    <% flash.each do |msg_type, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{msg_type}") %>
-    <% end %>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="container center-align">
+      <% flash.each do |msg_type, msg| %>
+        <div class="row">
+          <div class="col s12"
+            <%= content_tag(:div, msg, class: "card-panel #{msg_type}") %>
+          </div>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
