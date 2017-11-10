@@ -3,6 +3,13 @@ $primary-color: #247BA0 !default;
 $secondary-color: #F25F5C !default;
 @import 'materialize';
 
+/* Buttons */
+
+#create-event {
+    margin: 8px;
+    float: right;
+}
+
 /* Nav */
 
 nav .nav-wrapper {

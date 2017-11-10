@@ -3,6 +3,23 @@
         <h5 class='left-align'><%= "#{@user.name.capitalize}'s Events:" %></h1>
     </div>
     <div class='col s9'>
-        <section class='left-align'><p>No events for this user!</p></section>
+        <% if @user.events.any? %>
+            <ul>
+                <% @user.events.each do |event| %>
+                <section class='left-align'>
+                    <ul>
+                        <li><h5><%= event.name %></h5></li>
+                        <li><%= event.description %></li>
+                    </ul>
+                </section>
+                <div class="divider"></div>
+                <% end %>
+            <%= link_to new_event_path, class: "btn-floating btn-large waves-effect waves-light", id: "create-event" do %>
+                <i class="material-icons">add</i>
+            <% end %>
+            </ul>
+        <% else %>
+            <section class='left-align'><p>No events for this user!</p></section>
+        <% end %>
     </div>
 </div>
