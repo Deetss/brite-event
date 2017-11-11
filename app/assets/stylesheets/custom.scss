@@ -2,6 +2,25 @@
 $primary-color: #247BA0 !default;
 $secondary-color: #F25F5C !default;
 @import 'materialize';
+/* Typography */
+h6 {
+  margin-top: 48px;
+}
+
+/* User Events */
+ul {
+  li#event-description{
+    float: left;
+  }
+
+  li#event-date-time{
+    float: right;
+    span {
+      color: #bdbdbd;
+    }
+  }
+
+}
 
 /* Buttons */
 

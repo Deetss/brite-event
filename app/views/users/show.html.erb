@@ -2,14 +2,15 @@
     <div class='col s3'>
         <h5 class='left-align'><%= "#{@user.name.capitalize}'s Events:" %></h5>
     </div>
-    <div class='col s9'>
+    <div class='col s6'>
         <% if @user.events.any? %>
             <ul>
                 <% @user.events.each do |event| %>
                 <section class='left-align'>
                     <ul>
-                        <li><h5><%= event.name %></h5></li>
-                        <li><%= event.description %></li>
+                        <li id="event-name"><%= link_to event.name, event_path(event.id) %></h5></li>
+                      <li id="event-description" class="left-align"><%= event.description %></li>
+                      <li class="event-date-time right-align"><span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span></li>
                     </ul>
                 </section>
                 <div class="divider"></div>
