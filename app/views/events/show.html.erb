@@ -4,7 +4,7 @@
     <h5><span class="date grey-text"><%= @event.date %></span> <span class="time grey-text"><%= @event.time %></span></h5>
     <h6>Host: <%= link_to @event.creator.name, @event.creator %></h6>
     <% if @event.attendees.any? %>
-      <h6><%= pluralize(@event.attendees.where('invite.accepted = true').count, "guest") %></h6>
+      <h6><%= pluralize(@event.attendees.count, "guest") %></h6>
     <% end %>
   </div>
   <div class='col s6'>

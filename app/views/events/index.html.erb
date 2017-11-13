@@ -1,14 +1,19 @@
 <div class='row'>
-  <div class='col s8 push-s2'>
+  <div class='col s8 offset-s2'>
     <% @events.each do |event| %>
-        <section class='left-align'>
-          <ul>
-            <li id="event-name"><%= link_to event.name, event_path(event.id) %></h5></li>
-            <li id="event-description" class="left-align"><%= event.description %></li>
-            <li class="event-date-time right-align"><span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span></li>
-          </ul>
-        </section>
-        <div class="divider"></div>
+     <div class="card is-primary">
+        <div class="card-content white-text">
+          <span class="card-title left-align"><%= link_to event.name.capitalize, event_path(event.id) %></span>
+          <p class="black-text"><%= event.description %></p>
+        </div>
+        <div class="card-action">
+          <span>hosted by <%= link_to event.creator.name.capitalize, event.creator %></span>
+          <span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span>
+        </div>
+      </div>
     <% end %>
+     <%= link_to create_event_path, class: 'btn-floating btn-large waves-effect waves-light', id: 'create-event' do %>
+       <i class="material-icons">add</i>
+     <% end %>
   </div>
 </div>

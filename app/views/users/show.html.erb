@@ -4,18 +4,18 @@
     </div>
     <div class='col s6'>
         <% if @user.events.any? %>
-            <ul>
-                <% @user.events.each do |event| %>
-                <section class='left-align'>
-                    <ul>
-                        <li id="event-name"><%= link_to event.name, event_path(event.id) %></h5></li>
-                      <li id="event-description" class="left-align"><%= event.description %></li>
-                      <li class="event-date-time right-align"><span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span></li>
-                    </ul>
-                </section>
-                <div class="divider"></div>
-                <% end %>
-            </ul>
+            <% @user.events.each do |event| %>
+            <div class="card is-primary">
+                <div class="card-content white-text">
+                  <span class="card-title left-align"><%= link_to event.name.capitalize, event_path(event.id) %></span>
+                  <p class="black-text"><%= event.description %></p>
+                </div>
+                <div class="card-action">
+                  <span>hosted by <%= link_to event.creator.name.capitalize, event.creator %></span>
+                  <span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span>
+                </div>
+            </div>
+            <% end %>
         <% else %>
             <section class='left-align'><p>No events for this user!</p></section>
         <% end %>
