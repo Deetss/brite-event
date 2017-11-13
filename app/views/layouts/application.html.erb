@@ -15,7 +15,7 @@
       <div class="columns">
         <div class="column">
           <% flash.each do |msg_type, msg| %>
-            <%= content_tag(:div, msg, class: "card-panel #{msg_type}") %>
+            <%= content_tag(:div, msg, class: "notification is-#{msg_type}") %>
           <% end %>
           <%= yield %>
         </div>
