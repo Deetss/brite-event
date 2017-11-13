@@ -3,18 +3,12 @@
     <h3><%= @event.name %></h3>
     <h5><span class="date grey-text"><%= @event.date %></span> <span class="time grey-text"><%= @event.time %></span></h5>
     <h6>Host: <%= link_to @event.creator.name, @event.creator %></h6>
-<<<<<<< HEAD
-    <% if @event.attendees.any? %>
-      <h6><%= pluralize(@event.attendees.count, "guest") %></h6>
-    <% end %>
-=======
     <h6><%= pluralize(@event.attendees.count, "guest") %></h6>
-    <%# unless @event.registered?(current_user) %>
+    <% unless @event.attendees.find_by(id: current_user.id) %>
       <%= link_to "Register!", events_path, class: "waves-effect waves-light btn-large" %>
-    <%# end %>
->>>>>>> c3865f56c42c00f858aa1b54e828d12bad5109c4
+    <% end %>
   </div>
   <div class='col s6'>
-    <h6 class='left-align' ><%= @event.description %></h6>
+    <h6 class='left-align'><%= @event.description %></h6>
   </div>
 </div>

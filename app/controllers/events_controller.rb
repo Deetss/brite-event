@@ -26,7 +26,7 @@ class EventsController < ApplicationController
 
   def register
     @event = Event.find(params[:id])
-    @invite = @event.invites.build(attendee: current_user)
+    @invite = @event.invites.build(attendee: current_user, attended_event: @event)
     if @invite.save
       flash.now[:success] = "Successfully registered for #{@event.name}!"
       render :show
