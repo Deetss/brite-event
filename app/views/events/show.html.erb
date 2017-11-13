@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col s3">
+<div class="columns">
+  <div class="column">
     <h3><%= @event.name %></h3>
     <h5><span class="date grey-text"><%= @event.date %></span> <span class="time grey-text"><%= @event.time %></span></h5>
     <h6>Host: <%= link_to @event.creator.name, @event.creator %></h6>
@@ -8,7 +8,7 @@
       <%= link_to "Register!", events_path, class: "waves-effect waves-light btn-large" %>
     <%# end %>
   </div>
-  <div class='col s6'>
+  <div class='column'>
     <h6 class='left-align' ><%= @event.description %></h6>
   </div>
 </div>

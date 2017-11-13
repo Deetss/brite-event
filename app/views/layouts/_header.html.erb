@@ -1,25 +1,24 @@
-<nav>
-    <div class="nav-wrapper">
-        <%= link_to 'Brite Event', root_url, class: "brand-logo"%>
-        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <% if logged_in? %>
-                <li><%= link_to "#{@current_user.name.capitalize}", @current_user %></li>
-                <li><%= link_to "Browse Events", events_path %></li>
-                <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-            <% else %>
-                <li><%= link_to 'Log in', login_path %></li>
-                <li><%= link_to 'Sign up', signup_path %></li>
-            <% end %>
-        </ul>
-        <ul class="side-nav" id="mobile">
-            <% if logged_in? %>
-                <li><%= link_to "#{@current_user.name.capitalize}", @current_user %></li>
-                <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-            <% else %>
-                <li><%= link_to 'Log in', login_path %></li>
-                <li><%= link_to 'Sign up', signup_path %></li>
-            <% end %>
-        </ul>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <%= link_to 'Brite Event', root_url, class: "navbar-item"%>
+      <button class="button navbar-burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-start"></div>
+      <div class="navbar-end">
+        <% if logged_in? %>
+            <%= link_to "#{@current_user.name.capitalize}", @current_user, class: "navbar-item" %>
+            <%= link_to "Browse Events", events_path, class: "navbar-item" %></li>
+            <%= link_to 'Log out', logout_path, method: :delete , class: "navbar-item"%></li>
+        <% else %>
+            <%= link_to 'Log in', login_path , class: "navbar-item"%>
+            <%= link_to 'Sign up', signup_path , class: "navbar-item"%>
+        <% end %>
+      </div>
     </div>
 </nav>

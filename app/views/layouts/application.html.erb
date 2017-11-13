@@ -7,15 +7,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container center-align">
-      <% flash.each do |msg_type, msg| %>
-        <%= content_tag(:div, msg, class: "card-panel #{msg_type}") %>
-      <% end %>
-      <%= yield %>
-    </div>
+      <%= render 'layouts/header' %>
+      <div class="columns">
+        <div class="column">
+          <% flash.each do |msg_type, msg| %>
+            <%= content_tag(:div, msg, class: "card-panel #{msg_type}") %>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
   </body>
 </html>

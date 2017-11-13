@@ -1,8 +1,8 @@
-<div class='row'>
-    <div class='col s3'>
+<div class='columns'>
+    <div class='column'>
         <h5 class='left-align'><%= "#{@user.name.capitalize}'s Events:" %></h5>
     </div>
-    <div class='col s6'>
+    <div class='column'>
         <% if @user.events.any? %>
             <ul>
                 <% @user.events.each do |event| %>

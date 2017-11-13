@@ -1,31 +1,31 @@
-<div class="row">
-  <div class="col s12">
+<div class="columns">
+  <div class="column">
     <h1>Create an event!</h1>
   </div>
 </div>
-<div class='row'>
+<div class='columns'>
   <%= form_for :event, :html => {class: "col s12"} do |f| %>
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="columns">
+        <div class="input-field column">
           <%= f.label :name %>
           <%= f.text_field :name, class: 'validate' %>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s12">
+      <div class="columns">
+        <div class="input-field column">
           <%= f.label :description %>
           <%= f.text_field :description, class: 'validate' %>
         </div>
       </div>
 
-      <div class="row">
-        <div class="input-field col s6">
+      <div class="columns">
+        <div class="input-field column">
           <%= f.label :date %>
           <%= f.text_field :date, class: 'datepicker' %>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field column">
           <%= f.label :time %>
           <%= f.text_field :time, class: 'timepicker' %>
         </div>

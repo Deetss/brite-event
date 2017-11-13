@@ -27,10 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# Use materialize css framework
-gem 'materialize-sass'
-# Use jquery for compatiility with materialize
-gem 'jquery-rails'
+# Use Bulma css for rails
+gem 'bulma-rails', '~> 0.6.1'
 # Use material icons with css
 gem 'material_icons'
 
