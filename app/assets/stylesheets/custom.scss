@@ -1,9 +1,14 @@
 @import "bulma";
 
+/* Navbaar */
+.navbar{
+  box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1)
+}
+
 /* Columns */
 
-.column {
-  margin-top: 8px;
+.columns {
+  margin: 8px 0;
 }
 
 /* Typography */
@@ -33,10 +38,8 @@ ul {
     float: right;
 }
 
-/* Nav */
-
-nav .nav-wrapper {
-    padding-left: 15px;
+.button {
+  margin-top: 8px;
 }
 
 

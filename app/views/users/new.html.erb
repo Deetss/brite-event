@@ -1,34 +1,25 @@
-<div class="columns">
-    <div class="column">
-        <h1>Sign Up!</h1>
-    </div>
-</div>
-<div class='columns'>
-    <%= form_for @user, :html => {class: "column"} do |f| %>
-        <% if @user.errors.any? %>
-            <div id="error_explanation">
-                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-                
-                <ul>
-                    <% @user.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-        <div class="columns">
-            <div class="input-field column">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'validate' %>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="input-field column">
-                <%= f.label :email %>
-                <%= f.text_field :email, class: 'validate' %>
-            </div>
-        </div>
-        
-        <%= f.submit 'Sign up!', class: "waves-effect waves-light btn-large" %>
-    <% end %>
+<div class="columns has-text-centered is-centered">
+  <div class="column is-narrow">
+      <h1>Sign Up!</h1>
+  <%= form_for @user, :html => {class: "column"} do |f| %>
+      <% if @user.errors.any? %>
+          <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+              </ul>
+          </div>
+      <% end %>
+
+      <%= f.label :name, class: "label has-text-left" %>
+      <%= f.text_field :name, class: 'input' %>
+      <%= f.label :email, class: "label has-text-left" %>
+      <%= f.text_field :email, class: 'input' %>
+
+      <%= f.submit 'Sign up!', class: "button" %>
+  <% end %>
+  </div>
 </div>
