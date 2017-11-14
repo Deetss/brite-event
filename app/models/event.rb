@@ -3,11 +3,13 @@ class Event < ApplicationRecord
     has_many :invites
     has_many :attendees, through: :invites
     
+    scope :upcoming, -> { where("date > ?", Time.zone.now) }
         
-    scope :past, -> { where("date < ?", Time.zone.now) }
-    scope :upcoming, -> { where("date >= ?", Time.zone.now) }
+    scope :past, -> { where("date <= ?", Time.zone.now) }
+    
+    
 
-    def date
-        super.strftime("%B %e @ %l:%M") unless super.nil?
+    def formated_datetime
+        date.strftime("%B %e") + time.strftime(" @ %l:%M %P") unless date.nil?
     end
 end
