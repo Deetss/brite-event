@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:show, :index]
 
-  post '/events/:id/register', to: 'events#register'
+  post '/events/:id', to: 'events#register'
 
   get '/create_event', to: 'events#new'
 

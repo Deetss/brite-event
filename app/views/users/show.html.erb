@@ -1,26 +1,46 @@
 <div class='row'>
     <div class='col s3'>
         <h5 class='left-align'><%= "#{@user.name.capitalize}'s Events:" %></h5>
+        <%= link_to 'Create Event!', create_event_path, class: 'btn btn-large waves-effect waves-light left', id: 'create-event' %>
     </div>
     <div class='col s6'>
         <% if @user.events.any? %>
-            <% @user.events.each do |event| %>
-            <div class="card is-primary">
-                <div class="card-content white-text">
-                  <span class="card-title left-align"><%= link_to event.name.capitalize, event_path(event.id) %></span>
-                  <p class="black-text"><%= event.description %></p>
+            <h4>Upcoming Events</h4>
+            <% if @upcoming_events.any? %>
+                <% @upcoming_events.each do |event| %>
+                <div class="card is-primary">
+                    <div class="card-content white-text">
+                      <span class="card-title left-align"><%= link_to event.name.capitalize, event_path(event.id) %></span>
+                      <p class="black-text"><%= event.description %></p>
+                    </div>
+                    <div class="card-action">
+                      <span>hosted by <%= link_to event.creator.name.capitalize, event.creator, class: "red-text" %></span>
+                      <span class="date grey-text"><%= event.date %></span></span>
+                    </div>
                 </div>
-                <div class="card-action">
-                  <span>hosted by <%= link_to event.creator.name.capitalize, event.creator %></span>
-                  <span class="date grey-text"><%= event.date %></span> <span class="time grey-text"><%= event.time %></span>
+                <% end %>
+            <% else %>
+                <section><p>No upcoming events for this user!</p></section>
+            <% end %>
+            <h4>Past Events</h4>
+            <% if @past_events.any? %>
+                <% @past_events.each do |event| %>
+                <div class="card is-primary">
+                    <div class="card-content white-text">
+                      <span class="card-title left-align"><%= link_to event.name.capitalize, event_path(event.id) %></span>
+                      <p class="black-text"><%= event.description %></p>
+                    </div>
+                    <div class="card-action">
+                      <span>hosted by <%= link_to event.creator.name.capitalize, event.creator, class: "red-text" %></span>
+                      <span class="date grey-text"><%= event.date %></span></span>
+                    </div>
                 </div>
-            </div>
+                <% end %>
+            <% else %>
+                <section class='left-align'><p>No past events for this user!</p></section>
             <% end %>
         <% else %>
             <section class='left-align'><p>No events for this user!</p></section>
         <% end %>
-       <%= link_to create_event_path, class: 'btn-floating btn-large waves-effect waves-light', id: 'create-event' do %>
-           <i class="material-icons">add</i>
-       <% end %>
     </div>
 </div>

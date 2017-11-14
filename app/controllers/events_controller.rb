@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     if @event.save
       flash[:success] = "Event successfully created"
+      register_user_for_event(current_user, @event)
       redirect_to current_user
     else
       flash.now[:danger] = "Event not created!"
@@ -22,26 +23,31 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @upcoming_events = Event.upcoming
+    @past_events = Event.past
   end
 
   def register
     @event = Event.find(params[:id])
-    @invite = @event.invites.build(attendee: current_user, attended_event: @event)
-    if @invite.save
+    if register_user_for_event(current_user, @event)
       flash.now[:success] = "Successfully registered for #{@event.name}!"
-      render :show
+      redirect_to @event
     else
-      flash.now[:danger] = "Unsuccessful registration"
-      render :show
+      flash[:danger] = "Unsuccessful registration"
+      redirect_to @event
     end
   end
 
   private
-
-  def event_params
-    params.require(:event).permit(:name, :description, :date, :time)
+  
+  def register_user_for_event(user, event)
+    event.attendees << user
   end
-
+  
+  def event_params
+    params.require(:event).permit(:name, :description, :date)
+  end
+  
   # Filters
 
   def logged_in?
