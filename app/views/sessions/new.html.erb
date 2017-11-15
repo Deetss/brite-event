@@ -1,19 +1,19 @@
 <div class="row">
-    <div class="col s12">
+    <div class="col l12 s12">
         <h1>Sign in</h1>
     </div>
 </div>
 <div class='row'>
-    <%= form_for(:session, url: login_path, :html => {class: "col s12"} ) do |f| %>
+    <%= form_for(:session, url: login_path, :html => {class: "col l12 s12"} ) do |f| %>
         <div class="row">
-            <div class='input-field col s6 offset-s3'>
+            <div class='input-field col l6 offset-l3 s12'>
                 <%= f.label :email %>
                 <%= f.text_field :email, class: 'form_control' %>
             </div>
         </div>
         
         <div class="row">
-            <div class='col s6 offset-s3'>        
+            <div class='col l6 offset-l3 s12'>
                 <%= f.submit 'Sign in!', class: "waves-effect waves-light btn-large" %>
             </div>
         </div>

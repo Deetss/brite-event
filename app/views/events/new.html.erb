@@ -1,31 +1,31 @@
 <div class="row">
-  <div class="col s12">
+  <div class="col l12 s12">
     <h1>Create an event!</h1>
   </div>
 </div>
 <div class='row'>
-  <%= form_for :event, :html => {class: "col s12"} do |f| %>
+  <%= form_for :event, :html => {class: "col l12 s12"} do |f| %>
       <div class="row">
-        <div class="input-field col s6 offset-s3">
+        <div class="input-field col l6 offset-l3 s12">
           <%= f.label :name %>
           <%= f.text_field :name, class: 'validate' %>
         </div>
       </div>
 
       <div class="row">
-        <div class="input-field col s6 offset-s3">
+        <div class="input-field col l6 offset-l3 s12">
           <%= f.label :description %>
           <%= f.text_field :description, class: 'validate' %>
         </div>
       </div>
 
       <div class="row">
-        <div class="input-field col s3 offset-s3">
+        <div class="input-field col l3 offset-l3 s12">
           <%= f.label :date %>
           <%= f.text_field :date, class: 'datepicker' %>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col l3 s12">
           <%= f.label :time %>
           <%= f.text_field :time, class: 'timepicker' %>
         </div>

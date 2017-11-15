@@ -1,15 +1,15 @@
 <div class="row">
-    <div class="col s12">
+    <div class="col l12 s12">
         <h1>Welcome to Brite Event!</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col s12">
+    <div class="col l12 s12">
       <% if logged_in? %>
         <%= link_to 'Create event!' , create_event_path, class: "waves-effect waves-light btn-large"%><br>
           <p>Or <%= link_to "Browse Events", events_path %></p>
       <% else %>
-        <%= link_to 'Sign Up!', signup_path, class: "waves-effect waves-light btn-large" %>
+        <%= link_to 'Sign Up!', signup_path, class: "waves-effect waves-light btn-large s12" %>
       <% end %>
     </div>
 </div>

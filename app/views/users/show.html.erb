@@ -1,9 +1,9 @@
 <div class='row'>
-    <div class='col s3'>
-        <h5 class='left-align'><%= "#{@user.name.capitalize}'s Events:" %></h5>
-        <%= link_to 'Create Event!', create_event_path, class: 'btn btn-large waves-effect waves-light left', id: 'create-event' %>
+    <div class='col l3 s12 center-on-small-only'>
+        <h5 class='left-on'><%= "#{@user.name.capitalize}'s Events:" %></h5>
+        <%= link_to 'Create Event!', create_event_path, class: 'btn btn-large waves-effect waves-light', id: 'create-event' %>
     </div>
-    <div class='col s6'>
+    <div class='col l6 s12'>
         <% if @user.events.any? %>
             <h4>Upcoming Events</h4>
             <% if @upcoming_events.any? %>
