@@ -5,6 +5,17 @@
 </div>
 <div class='row'>
   <%= form_for :event, :html => {class: "col l12 s12"} do |f| %>
+      <% if @event.errors.any? %>
+          <div id="error_explanation" class='col l6 offset-l3 s12 red'>
+            <h5><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h5>
+
+            <ul>
+              <% @event.errors.full_messages.each do |msg| %>
+                  <li class="white"><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
       <div class="row">
         <div class="input-field col l6 offset-l3 s12">
           <%= f.label :name %>

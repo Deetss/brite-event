@@ -1,11 +1,11 @@
 <div class='row'>
     <div class='col l3 s12 center-on-small-only'>
         <h5 class='left-on'><%= "#{@user.name.capitalize}" %></h5>
-          <ul class="collection with-header">
-            <li class="collection-header"><h5>Attending events</h5></li>
-            <% if @user.attended_events.any? %>
-              <% @user.attended_events.each do |event| %>
-                  <li class="collection-item"><%= link_to event.name, event %></li>
+            <% if @user.attended_events.upcoming.any? %>
+              <ul class="collection with-header">
+                <li class="collection-header"><h5>Attending events</h5></li>
+              <% @user.attended_events.upcoming.each do |event| %>
+                <li class="collection-item"><%= link_to event.name, event %></li>
               <% end %>
             <% end %>
           </ul>

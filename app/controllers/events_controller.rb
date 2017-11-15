@@ -12,7 +12,6 @@ class EventsController < ApplicationController
       register_user_for_event(current_user, @event)
       redirect_to current_user
     else
-      flash.now[:danger] = "Event not created!"
       render :new
     end
   end
