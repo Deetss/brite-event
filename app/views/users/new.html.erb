@@ -6,7 +6,7 @@
 <%= form_for @user, :html => {class: "row"} do |f| %>
     <% if @user.errors.any? %>
         <div id="error_explanation" class='col l6 offset-l3 s12 red'>
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
             
             <ul>
                 <% @user.errors.full_messages.each do |msg| %>
