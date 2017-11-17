@@ -4,7 +4,7 @@
     <h5><span class="date grey-text"><%= @event.formated_datetime %></span></h5>
     <h6>Host: <%= link_to @event.creator.name, @event.creator %></h6>
     <h6><%= pluralize(@event.attendees.count, "guest") %></h6>
-    <% unless @event.attendees.find_by(id: current_user.id) %>
+    <% unless @event.attendees.find_by(id: @user.id) %>
       <%= link_to "Register!", event_path(:id => @event.id), class: "waves-effect waves-light btn-large", method: :post %>
     <% end %>
     <ul class="collection with-header">
